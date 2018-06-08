@@ -1,0 +1,12 @@
+<h1 class= "header-index" >Top Hospitals</h1>
+
+<% if current_user %>
+    <%= link_to "Edit your Profile", edit_user_registration_path %>
+<% end %>
+<% @users = User.all %>
+    <% @users.each do |user| %>
+        <div class="well"> 
+            <%= user.hospitalName %><br/>
+            <%= user.email %><br/>
+        </div>
+    <% end %>

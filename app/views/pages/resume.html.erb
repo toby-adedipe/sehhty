@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+    <h2> Already signed in, Do you want to <%= link_to "Sign out?", destroy_user_session_path,:method => :delete, class:'btn btn-danger' %></h2>
+<% else %>
+    <div class = "col-md-6 col-md-offset-2">
+        <div class = "jumbotron">
+            <div class = "btn btn-primary btn-block">
+                <a href="/users/sign_in"> "Log In as Health Care Provider" </a>
+            </div>
+            <div class = " btn btn-success btn-block">
+                <a href="/patients/sign_in"> Log In as Patient </a>
+                <%= link_to "Log In as Patient", new_patient_session_path%>
+            </div>
+        </div>
+        </div>
+    </div>
+<% end %>
