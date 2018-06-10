@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ratings
   get 'register' => 'pages#register'
   get 'resume' => 'pages#resume'
   devise_for :patients
