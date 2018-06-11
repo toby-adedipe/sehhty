@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class = "row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <p>
           <strong>Name:</strong>
           <%= @hospital.name %>
@@ -11,6 +11,16 @@
           <strong>About:</strong>
           <%= @hospital.about %>
         </p>
+        <% if @ratings.blank? %>
+          <p><strong>Rating: </strong>No Ratings Just Yet </p>
+        <% else %>
+          <% @ratings.each do |rating| %>
+            <div class="ratings">
+              <p><strong>Rating: </strong><%= rating.rating %></p>
+            </div>
+          <% end %>
+        <% end %>
+        <%= link_to "Rate this Hospital", new_hospital_rating_path(@hospital), class: "btn btn-danger" %>
       </div>
     </div>
   </div>

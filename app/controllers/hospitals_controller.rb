@@ -7,6 +7,7 @@ class HospitalsController < ApplicationController
   end
 
   def show
+    @ratings = Rating.where(hospital_id: @hospital.id).order("created_at DESC")
   end
 
   def new
