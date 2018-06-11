@@ -1,28 +1,20 @@
 class StaffsController < ApplicationController
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
 
-  # GET /staffs
-  # GET /staffs.json
   def index
     @staffs = Staff.all
   end
 
-  # GET /staffs/1
-  # GET /staffs/1.json
   def show
   end
 
-  # GET /staffs/new
   def new
     @staff = Staff.new
   end
 
-  # GET /staffs/1/edit
   def edit
   end
 
-  # POST /staffs
-  # POST /staffs.json
   def create
     @staff = Staff.new(staff_params)
 
@@ -37,8 +29,6 @@ class StaffsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /staffs/1
-  # PATCH/PUT /staffs/1.json
   def update
     respond_to do |format|
       if @staff.update(staff_params)
@@ -51,8 +41,6 @@ class StaffsController < ApplicationController
     end
   end
 
-  # DELETE /staffs/1
-  # DELETE /staffs/1.json
   def destroy
     @staff.destroy
     respond_to do |format|
@@ -62,12 +50,10 @@ class StaffsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_staff
       @staff = Staff.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def staff_params
       params.require(:staff).permit(:firstName, :lastName, :job)
     end

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   devise_for :patients
   get 'users' => 'users#index'
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations"} do
+    resources :ratings, except: [:show, :index]
+  end
+  
   resources :staffs
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

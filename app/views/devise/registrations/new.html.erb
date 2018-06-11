@@ -2,6 +2,7 @@
   <%= devise_error_messages! %>
 
   <% if resource.class == User %>
+<<<<<<< HEAD
   <h2>Health Provider Sign up</h2>
     <div class="field">
       <%= f.label :hospitalName %></br>
@@ -11,6 +12,17 @@
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+=======
+    <h2>Health Provider Sign up</h2>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :hospitalName %></br>
+      <%= f.text_field :hospitalName, autofocus: true %>
+>>>>>>> users
     </div>
 
     <div class="field">
@@ -65,7 +77,10 @@
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> users
   <% end %>
 <% end %>
 
