@@ -7,6 +7,13 @@ class HospitalsController < ApplicationController
   end
 
   def show
+    @ratings = Rating.where(hospital_id: @hospital.id).order("created_at DESC")
+
+    if @ratings.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @ratings.average(:rating).round(2)
+    end
   end
 
   def new
