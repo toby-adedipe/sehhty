@@ -6,17 +6,22 @@
           <strong>Name:</strong>
           <%= @hospital.name %>
         </p>
-
         <p>
           <strong>About:</strong>
           <%= @hospital.about %>
         </p>
+        <p><strong>Average Rating: </strong></p>
+        <div>
+          <div class="star-rating" data-score= <%= @avg_rating %></div>
+        </div>
+        <em><%= "#{@ratings.length} ratings" %></em>
         <% if @ratings.blank? %>
           <p><strong>Rating: </strong>No Ratings Just Yet </p>
         <% else %>
           <% @ratings.each do |rating| %>
             <div class="ratings">
-              <p><strong>Rating: </strong><%= rating.rating %></p>
+              <p><strong>Rating: </strong> </p>
+              <div class="star-rating" data-score = <%= rating.rating %> </div>
             </div>
           <% end %>
         <% end %>
@@ -28,3 +33,12 @@
 
 <%= link_to 'Edit', edit_hospital_path(@hospital) %> |
 <%= link_to 'Back', hospitals_path %>
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    }
+  });
+</script>
