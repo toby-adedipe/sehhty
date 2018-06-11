@@ -1,0 +1,19 @@
+<% if user_signed_in? || patient_signed_in? %>
+  <p id="notice"><%= notice %></p>
+  <% @hospitals.each do |hospital| %>
+    <div class="row well">
+      <div class="col-sm-6 col-md-3">
+        <h2><%= hospital.name %></h2>
+        <p><%= hospital.about %></p>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to 'New Hospital', new_hospital_path %>
+<% else %>
+  <div class = "jumbotron">
+    <h1>View Ratings of top Hospitals </h1>
+      <p> view the top rated hospitals in dubai for free, just sign up and start rating them too </p>
+    <%= link_to "Sign Up To Rate A Hospital", new_patient_registration_path, class: "btn btn-primary brn-lg" %> OR  <%= link_to "Log in To Rate A Hospital", new_patient_session_path, class: "btn btn-success brn-lg" %>
+
+  </div>
+<% end %>

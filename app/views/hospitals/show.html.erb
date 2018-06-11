@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class = "row">
+      <div class="col-md-6">
+        <p>
+          <strong>Name:</strong>
+          <%= @hospital.name %>
+        </p>
+
+        <p>
+          <strong>About:</strong>
+          <%= @hospital.about %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_hospital_path(@hospital) %> |
+<%= link_to 'Back', hospitals_path %>
