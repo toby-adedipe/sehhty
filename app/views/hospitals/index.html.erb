@@ -5,6 +5,7 @@
       <div class="col-sm-6 col-md-3">
         <h2><%= hospital.name %></h2>
         <p><%= hospital.about %></p>
+        <%= link_to "View Hospital Rating", hospital_path(hospital.id) %>
       </div>
     </div>
   <% end %>
